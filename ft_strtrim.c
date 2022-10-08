@@ -1,35 +1,76 @@
 #include "libft.h"
 
+int checksset(char const *s1, char const *set)
+{
+	int		i;
+	int		j;
+	int		f;
+
+	i = 0;
+	while (*(s1 + i))
+	{
+		j = 0;
+		while (*(set + j))
+		{
+			f = 0;
+			if (*(s1 + i) == *(set + j))
+			{
+				f = 1;
+				break ;
+			}
+			j++;
+		}
+		if (f == 1)
+			i++;
+		else
+			break ;
+	}
+	return (i);
+}
+int checkeset(char const *s1, char const *set, int last)
+{
+	int		i;
+	int		j;
+	int		f;
+
+	i = 0;
+	while (*(s1 + (last - i)))
+	{
+		j = 0;
+		while (*(set + j))
+		{
+			f = 0;
+			if (*(s1 + (last - i)) == *(set + j))
+			{
+				f = 1;
+				break ;
+			}
+			j++;
+		}
+		if (f == 1)
+			i++;
+		else
+			break ;
+	}
+	return (last - i);
+}
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	int 	s_l;
-	int 	set_l;
-	int 	f;
-	int		i;
+	int 	start;
+	int 	end;
+	int 	i;
 	char	*str;
 
 	s_l = ft_strlen(s1);
-	set_l = ft_strlen(set);
-	if (!ft_strncmp((s1 + (s_l - set_l)), set, set_l))
-		s_l -= set_l;
-	if (!ft_strncmp(s1, set, set_l))
-	{
-		s_l -= set_l;
-		f = 1;
-	}
-	str = (char *) malloc((s_l + 1) * sizeof(char));
+	start = checksset(s1, set);
+	end = checkeset(s1, set, s_l - 1);
+	str = (char *) malloc(((end - start) + 2) * sizeof(char));
 	if (str)
 	{
 		i = 0;
-		f = 0;
-		while (i < s_l)
-		{
-			if (f == 1)
-				*(str + i) = *(s1 + set_l + i);
-			else
-				*(str + i) = *(s1 + i);
-			i++;
-		}
+		while (start <= end)
+			*(str + i++) = *(s1 + start++);
 		*(str + i) = '\0';
 	}
 	return (str);
