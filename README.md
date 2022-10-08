@@ -5,4 +5,4 @@ My humble solution for the first project in 1337(42) cursus...
 # Second part:    Create some additional functions.
 # Third part:     Create some bonus functions.
 # Fourth part:    Create a libft.h.
-# fifth part:     Create MakeFile.
+# Fifth part:     Create MakeFile.
