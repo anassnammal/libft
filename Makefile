@@ -29,7 +29,6 @@ SRC = ft_bzero.c \
 	ft_toupper.c
 CFLAGS += -Wall -Wextra -Werror
 OBJS = $(SRC:.c=.o)
-CUR_DIR = $(shell pwd)
 
 all: $(NAME)
 	@echo "Compiling..."
