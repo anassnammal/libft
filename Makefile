@@ -46,8 +46,9 @@ all: $(NAME)
 	@echo "Compiling..."
 
 $(NAME): $(OBJS)
-	cc -o $(NAME) $(OBJS)
-
+	@cc -o $(NAME) $(OBJS)
+$(OBJS):
+	@cc -c $(SRC)
 clean:
 	@rm -rf $(OBJS)
 
