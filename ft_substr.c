@@ -3,7 +3,7 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char 	*substr;
-	int		i;
+	size_t	i;
 
 	substr = (char *) malloc((len + 1) * sizeof(char));
 	if (substr)

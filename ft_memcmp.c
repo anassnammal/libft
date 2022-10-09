@@ -22,10 +22,12 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	while (n-- > 0)
 	{
 		if (*c1++ != *c2++)
+		{
 			if (*c1 - *c2 < 0)
 				return (-1);
 			else
 				return (1);
+		}
 	}
 	return (0);
 }

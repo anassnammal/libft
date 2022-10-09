@@ -2,6 +2,6 @@
 
 int main(void)
 {
-	printf("%s\n", ft_strchr("anass nammal", 'a'));
+	printf("%s\n", ft_strchr("anass nammal", 's'));
 	return 0;
 }

@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char	*ft_strcat(char	*s1, char *s2)
+char	*ft_strcat(char	*s1, const char *s2)
 {
 	int	i;
 	int	j;
@@ -33,10 +33,10 @@ char	*ft_strcat(char	*s1, char *s2)
 	return (s1);
 }
 
-char	*ft_strncat(char *s1, char *s2, size_t n)
+char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	unsigned int	j;
-	unsigned int	l;
+	size_t	j;
+	size_t	l;
 
 	j = 0;
 	l = ft_strlen(s1);
@@ -52,7 +52,7 @@ char	*ft_strncat(char *s1, char *s2, size_t n)
 
 size_t ft_strlcat(char *dst, const char	*src, size_t dstsize)
 {
-	unsigned int	l_dest;
+	size_t	l_dest;
 
 	l_dest = ft_strlen(dst);
 	if (dstsize > 0)
@@ -68,7 +68,7 @@ size_t ft_strlcat(char *dst, const char	*src, size_t dstsize)
 			ft_strncat(dst, src, dstsize - l_dest - 1);
 			return (ft_strlen(src) + l_dest);
 		}
-		else if (size == 1)
+		else if (dstsize == 1)
 		{
 			dst[l_dest] = '\0';
 			return (ft_strlen(src) + 1);

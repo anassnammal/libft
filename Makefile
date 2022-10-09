@@ -27,7 +27,7 @@ SRC = ft_bzero.c \
 	ft_substr.c \
 	ft_tolower.c \
 	ft_toupper.c
-CFLAGS += -Wall -Wextra -Werror -I libft.h
+CFLAGS += -Wall -Wextra -Werror
 OBJS = $(SRC:.c=.o)
 CUR_DIR = $(shell pwd)
 
