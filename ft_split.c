@@ -1,56 +1,52 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: anammal <anammal@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/09 13:07:30 by anammal           #+#    #+#             */
-/*   Updated: 2022/10/09 13:07:33 by anammal          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
-#include "libft.h"
+static int	ft_counter(char const *s, char c)
+{
+	int	count;
+
+	count = 1;
+	while (*s)
+	{
+		if (*s == c)
+			count++;
+		s++;    
+	}
+	return (count);
+}
+
+static void	ft_populate(char **d, char const *s, char c, int len)
+{
+	int	count;
+	int	i;
+
+	i = 0;
+	while (i < len)
+	{
+		count = 1;
+		while (*s++ != c)
+			count++;
+		d[i] = (char *) malloc((count) * sizeof(char));
+		s -= count;
+		d[i][--count] = '\0';
+		while (--count >= 0)
+			d[i][count] = s[count];
+		while (*s++ != c)
+			;
+		i++;
+	}
+	d[i] = (char *) malloc(sizeof(char));
+}
 
 char	**ft_split(char const *s, char c)
 {
-	char	**strs;
-	int		i;
-	int		j;
-	int		k;
-	int		count;
-	int		len;
+	int		r;
+    char	**strs;
 
-	i = 0;
-	count = 0;
-	while (*(s + i))
-	{
-		if (*(s + i) == c)
-			count++;
-		i++;
-	}
-	len = i;
-	strs = (char **) malloc((len + 1) * sizeof(char));
+	r = ft_counter(s, c);
+	strs = (char **) malloc((r) * sizeof(char));
 	if (strs)
-	{
-		i = 0;
-		k = -1;
-		while (*(s + i))
-		{
-			j = 0;
-			if (i == 0 || *(s + i) == c)
-			{
-				if (*(s + i) == c)
-					i++;
-				while (*(s + (i + j)) && *(s + (i + j)) != c)
-					j++;
-				*(strs + (++k)) = (char *) malloc ((j + 1) * sizeof(char));		
-				strs[k][j] = '\0';
-				while (--j >= 0)
-					strs[k][j] = s[i + j];
-			}
-			i++;
-		}
-	}
+		ft_populate(strs, s, c, r);
 	return (strs);
 }

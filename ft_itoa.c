@@ -1,39 +1,58 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: anammal <anammal@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/09 13:06:25 by anammal           #+#    #+#             */
-/*   Updated: 2022/10/09 13:06:30 by anammal          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
-#include "libft.h"
+static int		ft_nbrlen(int n)
+{
+	int o;
+
+	o = 0;
+	while (n != 0)
+	{
+		n /= 10;
+		o++;
+	}
+	return (o);
+}
+
+static void		ft_populate(char *dst, int n, int len)
+{
+	dst[len] = '\0';
+	while (n != 0 || len == 1)
+	{
+		dst[--len] = (char)(n % 10 + 48);
+		n /= 10;
+	}
+}
 
 char	*ft_itoa(int n)
 {
-	int tmp;
-	int len;
-	char *str;
+	int		s;
+	int		len;
+	char	*output;
 
-	tmp = n;
-	len = 0;
-	while (tmp != 0)
+	s = 0;
+	if (n < 0)
 	{
-		tmp /= 10;
+		s++;
+		n *= -1;
+	}
+	len = ft_nbrlen(n) + s;
+	if (!len)
 		len++;
-	}
-	str = (char *) malloc((len + 1) * sizeof(char));
-	if (str)
+	output = (char *) malloc(len * sizeof(char) + 1);
+	if (output)
 	{
-		*(str + len) = '\0';
-		while (--len >= 0)
-		{
-			*(str + len) = (n % 10) + 48;
-			n /= 10;
-		}
+		ft_populate(output, n, len);
+		if (s)
+			output[0] = '-';
+		return (output);
 	}
-	return (str);
+	return (NULL);
+}
+
+int 	main(int argc, char const *argv[])
+{
+	printf("%s", ft_itoa(0));
+	return 0;
 }
