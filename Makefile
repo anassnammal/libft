@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft
+NAME = libft.a
 SRC = ft_bzero.c \
 	ft_calloc.c \
 	ft_isalnum.c \
@@ -43,11 +43,12 @@ CFLAGS += -Wall -Wextra -Werror
 OBJS = $(SRC:.c=.o)
 
 all: $(NAME)
-	@echo "Compiling..."
+	@echo Done
 
-$(NAME): $(OBJS)
-	@cc -o $(NAME) $(OBJS)
-$(OBJS):
+$(NAME): objs
+	@ar rc $(NAME) $(OBJS)
+objs:
+	@echo Compiling...
 	@cc -c $(SRC)
 clean:
 	@rm -rf $(OBJS)
@@ -56,3 +57,4 @@ fclean: clean
 	@rm -rf $(NAME)
 
 re: fclean all
+	@echo re...
