@@ -19,14 +19,14 @@ int	ft_atoi(const char *str)
 	while (*str == 32 || (*str >= 9 && *str <= 13))
 		str++;
 	s = 1;
-	if ((*str == '-' || *str == '+') && (*(str + 1) >= 48 && *(str + 1) <= 57))
+	if ((*str == '-' || *str == '+') && ft_isdigit(str + 1))
 	{
 		if (*str == '-')
 			s = -1;
 		str++;
 	}
 	r = 0;
-	while (*str >= 48 && *str <= 57)
+	while (ft_isdigit(*str))
 		r = r * 10 + ((*str++) - 48);
 	return (r * s);
 }
