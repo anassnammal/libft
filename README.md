@@ -26,11 +26,6 @@ My humble solution for the first project in 1337(42) cursus...
 • calloc <br />
 • strdup <br />
 ### Second part:    Create some additional functions.
-• substr <br />
-• strjoin <br />
-• strtrim <br />
-• split <br />
-• itoa <br />
 ### Third part:     Create some bonus functions.
 ### Fourth part:    Create a libft.h.
 ### Fifth part:     Create MakeFile.
