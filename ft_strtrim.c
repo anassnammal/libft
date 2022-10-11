@@ -9,10 +9,9 @@
 /*   Updated: 2022/10/09 13:05:52 by anammal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-int checksset(char const *s1, char const *set)
+static int checksset(char const *s1, char const *set)
 {
 	int		i;
 	int		j;
@@ -39,7 +38,7 @@ int checksset(char const *s1, char const *set)
 	}
 	return (i);
 }
-int checkeset(char const *s1, char const *set, int last)
+static int checkeset(char const *s1, char const *set, int last)
 {
 	int		i;
 	int		j;
