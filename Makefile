@@ -18,8 +18,8 @@ SRC = ft_bzero.c \
 	ft_isascii.c \
 	ft_isdigit.c \
 	ft_isprint.c \
+	ft_atoi.c \
 	ft_itoa.c \
-	ft_main.c \
 	ft_memchr.c \
 	ft_memcmp.c \
 	ft_memcpy.c \
@@ -38,7 +38,8 @@ SRC = ft_bzero.c \
 	ft_strtrim.c \
 	ft_substr.c \
 	ft_tolower.c \
-	ft_toupper.c
+	ft_toupper.c \
+	ft_strmapi.c
 CFLAGS += -Wall -Wextra -Werror
 OBJS = $(SRC:.c=.o)
 

@@ -13,16 +13,31 @@
 
 char *ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	if (needle)
+	size_t nlen;
+
+	if (len > 0 && *needle)
 	{
-		while (*haystack)
+		nlen = ft_strlen(needle);
+		while (haystack && needle && len-- > 0)
 		{
-			if (*haystack == *needle && !ft_strncmp(haystack, needle, ft_strlen(needle)))
-				return (haystack);
+			if (*haystack == *needle && nlen <= len && !ft_strncmp(haystack, needle, nlen))
+				return ((char *)haystack);
 			haystack++;
 		}
+		return (0);
 	}
-	else
-		return (haystack);
-	return (NULL);
+	return ((char *)haystack);
 }
+
+// int main(void)
+// {
+// 	char	*s1 = "oh no not the empty string !";
+// 			char	*s2 = "";
+// 			size_t	max = strlen(s1);
+
+// 	char	*i1 = strnstr(s1, s2, max);
+// 	char	*i2 = ft_strnstr(s1, s2, max);
+// 	printf("%s\n%s\n", i1, i2);
+// 	return 0;
+// }
+

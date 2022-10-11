@@ -33,7 +33,6 @@ static void		ft_populate(char *dst, int n, int len)
 		n /= 10;
 	}
 }
-
 char	*ft_itoa(int n)
 {
 	int		s;
@@ -41,7 +40,7 @@ char	*ft_itoa(int n)
 	char	*output;
 
 	s = 0;
-	if (n < 0)
+	if (n < 0 && n != -2147483648)
 	{
 		s++;
 		n *= -1;
@@ -52,16 +51,13 @@ char	*ft_itoa(int n)
 	output = (char *) malloc(len * sizeof(char) + 1);
 	if (output)
 	{
-		ft_populate(output, n, len);
+		if (n == -2147483648)
+			output = "-2147483648";
+		else
+			ft_populate(output, n, len);
 		if (s)
 			output[0] = '-';
 		return (output);
 	}
 	return (NULL);
-}
-
-int 	main(int argc, char const *argv[])
-{
-	printf("%s", ft_itoa(0));
-	return 0;
 }

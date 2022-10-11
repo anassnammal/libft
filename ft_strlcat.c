@@ -52,27 +52,29 @@ static char	*ft_strncat(char *s1, const char *s2, size_t n)
 size_t ft_strlcat(char *dst, const char	*src, size_t dstsize)
 {
 	size_t	l_dest;
+	size_t	l_src;
 
-	l_dest = ft_strlen(dst);
-	if (dstsize > 0)
+	l_src = ft_strlen(src);
+	if (dstsize > 0 || dst != 0)
 	{
-		if ((ft_strlen(src) + l_dest + 1) <= dstsize)
+		l_dest = ft_strlen(dst);
+		if ((l_src + l_dest + 1) <= dstsize)
 		{
 			ft_strcat(dst, src);
-			return (ft_strlen(src) + l_dest);
+			return (l_src + l_dest);
 		}
-		else if (dstsize < (ft_strlen(src) + l_dest + 1)
+		else if (dstsize < (l_src + l_dest + 1)
 			&& dstsize != 1 && dstsize > l_dest)
 		{
 			ft_strncat(dst, src, dstsize - l_dest - 1);
-			return (ft_strlen(src) + l_dest);
+			return (l_src + l_dest);
 		}
 		else if (dstsize == 1)
 		{
 			dst[l_dest] = '\0';
-			return (ft_strlen(src) + 1);
+			return (l_src + 1);
 		}
-		return (ft_strlen(src) + dstsize);
+		return (l_src + dstsize);
 	}	
-	return (ft_strlen(src));
+	return (l_src);
 }

@@ -13,7 +13,10 @@
 
 char *ft_strchr(const char *s, int c)
 {
-	while (*s)
+	int last;
+
+	last = ft_strlen(s);
+	while (last-- >= 0)
 	{
 		if (*s++ == (char)c)
 			return ((char *)(s - 1));
