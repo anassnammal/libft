@@ -50,7 +50,7 @@ $(NAME): objs
 	@ar rc $(NAME) $(OBJS)
 objs:
 	@echo Compiling...
-	@cc -c $(SRC)
+	@cc $(CFLAGS) -c $(SRC)
 clean:
 	@rm -rf $(OBJS)
 
