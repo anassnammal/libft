@@ -10,79 +10,36 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-
-static int checksset(char const *s1, char const *set)
+static int check_set(char *set, char c)
 {
-	int		i;
-	int		j;
-	int		f;
-
-	i = 0;
-	while (*(s1 + i))
+	while (*set)
 	{
-		j = 0;
-		while (*(set + j))
-		{
-			f = 0;
-			if (*(s1 + i) == *(set + j))
-			{
-				f = 1;
-				break ;
-			}
-			j++;
-		}
-		if (f == 1)
-			i++;
-		else
-			break ;
+		if (*set++ == c)
+			return 1;
 	}
-	return (i);
+	return (0);
 }
-static int checkeset(char const *s1, char const *set, int last)
-{
-	int		i;
-	int		j;
-	int		f;
 
-	i = 0;
-	while (*(s1 + (last - i)))
-	{
-		j = 0;
-		while (*(set + j))
-		{
-			f = 0;
-			if (*(s1 + (last - i)) == *(set + j))
-			{
-				f = 1;
-				break ;
-			}
-			j++;
-		}
-		if (f == 1)
-			i++;
-		else
-			break ;
-	}
-	return (last - i);
-}
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int 	s_l;
-	int 	start;
-	int 	end;
-	int 	i;
-	char	*str;
+	int i;
+	char *res;
 
-	s_l = ft_strlen(s1);
-	start = checksset(s1, set);
-	end = checkeset(s1, set, s_l - 1);
-	str = (char *) malloc(((end - start) + 2) * sizeof(char));
-	if (str)
+	if (s1 != 0 && set != 0)
 	{
-		i = 0;
-		while (start <= end)
-			*(str + i++) = *(s1 + start++);
-		*(str + i) = '\0';
+		while (*s1 && check_set((char *)set, *s1))
+			s1++;
+		i = ft_strlen(s1);
+		while (*s1 && check_set((char *)set, *(s1 + i - 1)))
+			i--;
+		res = (char *) malloc(sizeof(char) * (i + 1));
+		if (res)
+		{
+			*(res + i) = '\0';
+			while (--i >= 0)
+				*(res + i) = *(char *)(s1 + i);
+			return (res);
+		}
 	}
-	return (str);
+	return (NULL);
 }
