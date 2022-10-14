@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-#include <string.h>
-#include <stdio.h>
 
 int	ft_atoi(const char *str)
 {
@@ -32,12 +30,4 @@ int	ft_atoi(const char *str)
 	while (ft_isdigit(*str))
 		r = r * 10 + ((*str++) - 48);
 	return (r * s);
-}
-int main(void)
-{
-	char	*n = "-085";
-	int		i1 = atoi(n);
-	int		i2 = ft_atoi(n);
-	printf("%d\n%d\n", i1, i2);
-	return 0;
 }

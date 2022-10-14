@@ -39,7 +39,16 @@ SRC = ft_bzero.c \
 	ft_substr.c \
 	ft_tolower.c \
 	ft_toupper.c \
-	ft_strmapi.c
+	ft_striteri.c \
+	ft_strmapi.c \
+	ft_putchar_fd.c \
+	ft_putstr_fd.c \
+	ft_putendl_fd.c \
+	ft_putnbr_fd.c \
+	ft_lstnew_bonus.c \
+	ft_lstadd_front_bonus.c \
+	ft_lstsize_bonus.c \
+	ft_lstlast_bonus.c
 CFLAGS += -Wall -Wextra -Werror
 OBJS = $(SRC:.c=.o)
 
