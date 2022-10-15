@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME = libft.a
-SRC = ft_bzero.c \
+SRC =	ft_bzero.c \
 	ft_calloc.c \
 	ft_isalnum.c \
 	ft_isalpha.c \
@@ -43,25 +43,38 @@ SRC = ft_bzero.c \
 	ft_strmapi.c \
 	ft_putchar_fd.c \
 	ft_putstr_fd.c \
-	ft_putendl_fd.c \
-	ft_putnbr_fd.c \
+	ft_putendl_fd.c
+
+BSRC =	ft_putnbr_fd.c \
 	ft_lstnew_bonus.c \
 	ft_lstadd_front_bonus.c \
 	ft_lstsize_bonus.c \
-	ft_lstlast_bonus.c
+	ft_lstlast_bonus.c \
+	ft_lstadd_back_bonus.c
+
 CFLAGS += -Wall -Wextra -Werror
 OBJS = $(SRC:.c=.o)
+BOBJS = $(BSRC:.c=.o)
 
 all: $(NAME)
 	@echo Done
 
-$(NAME): objs
-	@ar rc $(NAME) $(OBJS)
-objs:
-	@echo Compiling...
-	@cc $(CFLAGS) -c $(SRC)
+$(NAME): mand bonus
+	 @ar rc $(NAME) $(OBJS) $(BOBJS)
+
+mand:
+	 @echo Compiling...
+	 @cc $(CFLAGS) -c $(SRC)
+
+bonus:
+	 @echo Compiling bonus part...
+	 @cc $(CFLAGS) -c $(BSRC)
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC) $(BSRC)
+	gcc -nostartfiles -shared -o libft.so $(OBJS) $(BOBJS)
 clean:
 	@rm -rf $(OBJS)
+	@rm -rf $(BOBJS)
 
 fclean: clean
 	@rm -rf $(NAME)
