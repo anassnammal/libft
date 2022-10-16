@@ -12,36 +12,40 @@
 #include "libft.h"
 #include <stdio.h>
 
+
 static int	ft_strscnt(char *s, char c)
 {
 	int i;
     
-    i = 0;
-    while (*s == c)
-        s++;
-    while (*s)
-    {
-        if (*s != c && (*(s + 1) == c || *(s + 1) == '\0'))
-            i++;
-        s++;
-    }
-    return (i);
-}
-
-static char	*ft_strfill(char *str, char *s, int i, int j)
-{
-	int k;
-
-	k = 0;
-	str = (char *)malloc(sizeof(char) * (j - i + 1));
-	if (s)
+    if (c != '\0')
 	{
-		while (i < j)
-			*(str + k++) = *(s + i++);
-		*(str + k) = '\0';
+		i = 0;
+		while (*s == c)
+			s++;
+		while (*s)
+		{
+			if (*s != c && (*(s + 1) == c || *(s + 1) == '\0'))
+				i++;
+			s++;
+		}
+		return (i);
 	}
-	return (str);
+    return (0);
 }
+
+// static char	*ft_strfill(char *str, char *s, int i, int j)
+// {
+// 	int k;
+// 	k = 0;
+// 	str = (char *)malloc(sizeof(char) * (j - i + 1));
+// 	if (s)
+// 	{
+// 		while (i < j)
+// 			*(str + k++) = *(s + i++);
+// 		*(str + k) = '\0';
+// 	}
+// 	return (str);
+// }
 
 char	**ft_split(char const *s, char c)
 {
@@ -49,29 +53,42 @@ char	**ft_split(char const *s, char c)
 	char **strs;
 	int i;
 	int j;
+	int k;
 
-	strs_s = ft_strscnt((char *)s, c);
-	strs = (char **) malloc((strs_s + 1) * sizeof(char *));
-	if (strs)
+	if (s)
 	{
-		*(strs + strs_s) = NULL;
-		i = 0;
-		while (*s + i && --strs_s >= 0)
+		strs_s = ft_strscnt((char *)s, c);
+		strs = (char **) malloc((strs_s + 1) * sizeof(char *));
+		if (strs)
 		{
-			j = 0;
-			while (*s + i + j != c)
-				j++;
-			*(strs + strs_s) = ft_strfill(str);
-			i++;
+			while (*s == c)
+					s++;
+			i = 0;
+			k = 0;
+			while (*(s + i) && k < strs_s)
+			{
+				j = 0;
+				while (*(s + i + j) != c)
+					j++;
+				if (*(s + i + j - 1) != c && *(s + i + j) == c)
+				{
+					*(strs + k) = ft_substr((char *)s, i , j);
+					i += j;
+					k++;
+				}
+				i++;
+			}
+			*(strs + k++) = NULL;
+			return (strs);
 		}
-		return (strs);
 	}
 	return (NULL);
 }
 
-int main(void)
-{
-	char ** strs = ft_split("      split       this for   me  !", ' ');
-	printf("%s\n%s\n%s\n%s\n%s\n", strs[0],strs[1],strs[2],strs[3],strs[4]);
-	return 0;
-}
+// int main(void)
+// {
+// 	char ** strs = ft_split("\0aa\0bbb", '\0');
+// 	printf("%s\n", strs[0]);
+// 	free(strs);
+// 	return 0;
+// }
