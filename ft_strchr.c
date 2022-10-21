@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-char *ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	int last;
+	int	last;
 
 	last = ft_strlen(s);
 	while (last-- >= 0)

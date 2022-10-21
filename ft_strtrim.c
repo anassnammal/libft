@@ -10,20 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-static int check_set(char *set, char c)
+
+static int	check_set(char *set, char c)
 {
 	while (*set)
 	{
 		if (*set++ == c)
-			return 1;
+			return (1);
 	}
 	return (0);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int i;
-	char *res;
+	int		i;
+	char	*res;
 
 	if (s1 != 0 && set != 0)
 	{

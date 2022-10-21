@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-static int		ft_nbrlen(int n)
+static int	ft_nbrlen(int n)
 {
-	int o;
+	int	o;
 
 	o = 0;
 	while (n != 0)
@@ -24,10 +24,10 @@ static int		ft_nbrlen(int n)
 	return (o);
 }
 
-static void		ft_populate(char *dst, int nb, int len)
+static void	ft_populate(char *dst, int nb, int len)
 {
-	unsigned int n;
-    
+	unsigned int	n;
+
 	if (nb < 0)
 		n = nb * -1;
 	else
@@ -39,6 +39,7 @@ static void		ft_populate(char *dst, int nb, int len)
 		n /= 10;
 	}
 }
+
 char	*ft_itoa(int n)
 {
 	int		s;
