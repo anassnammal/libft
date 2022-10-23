@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
+#include <stdio.h>
 
 static char	**ft_strsfill(char **strs, char *s, char c, int strs_s)
 {
@@ -19,12 +20,12 @@ static char	**ft_strsfill(char **strs, char *s, char c, int strs_s)
 
 	i = 0;
 	k = 0;
-	while (*(s + i) && k < strs_s)
+	while (*(s + i) && k <= strs_s)
 	{
 		j = 0;
-		while (*(s + i + j) != c)
+		while (*(s + i + j) != c && *(s + i + j))
 			j++;
-		if (*(s + i + j - 1) != c && *(s + i + j) == c)
+		if (*(s + i + j - 1) != c && (*(s + i + j) == c || !(*(s + i + j))))
 		{
 			*(strs + k) = ft_substr((char *)s, i, j);
 			i += j;
@@ -32,7 +33,7 @@ static char	**ft_strsfill(char **strs, char *s, char c, int strs_s)
 		}
 		i++;
 	}
-	*(strs + k++) = NULL;
+	*(strs + strs_s) = NULL;
 	return (strs);
 }
 
@@ -43,8 +44,6 @@ static int	ft_strscnt(char *s, char c)
 	if (c != '\0')
 	{
 		i = 0;
-		while (*s == c)
-			s++;
 		while (*s)
 		{
 			if (*s != c && (*(s + 1) == c || *(s + 1) == '\0'))
@@ -63,15 +62,28 @@ char	**ft_split(char const *s, char c)
 
 	if (s)
 	{
+		while (*s == c)
+			s++;
 		strs_s = ft_strscnt((char *)s, c);
 		strs = (char **) malloc((strs_s + 1) * sizeof(char *));
 		if (strs)
 		{
-			while (*s == c)
-					s++;
 			strs = ft_strsfill(strs, (char *)s, c, strs_s);
 			return (strs);
 		}
 	}
 	return (NULL);
+}
+
+int	main(void)
+{
+	char **strs;
+
+	strs = ft_split("      anass   nammal  g   .    ", ' ');
+	printf("%s\n", *strs);
+	printf("%s\n", strs[1]);
+	printf("%s\n", *(strs + 2));
+	printf("%s\n", *(strs + 3));
+	printf("%p\n", *(strs + 4));
+	free(strs);
 }
