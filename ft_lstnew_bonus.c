@@ -10,16 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
+#include <stdio.h>
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list	*tmp;
+	t_list	*new;
 
-	tmp = (t_list *)malloc(sizeof(t_list));
-	if (tmp)
+	new = (t_list *)malloc(sizeof(t_list));
+	if (new)
 	{
-		tmp->content = content;
-		tmp->next = NULL;
+		new->content = content;
+		new->next = NULL;
 	}
-	return (tmp);
+	return (new);
+}
+
+int	main(void)
+{
+	t_list *lst;
+
+	lst = ft_lstnew((void *)1337);
+	printf("%d\n", lst->content);
+	printf("%p\n", lst->next);
+	return 0;
 }
