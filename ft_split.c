@@ -12,74 +12,74 @@
 #include "libft.h"
 #include <stdio.h>
 
-static char	**ft_strsfill(char **strs, char *s, char c, int strs_s)
+static void ft_memclear(char **strs, int last)
 {
-	int		i;
-	int		j;
-	int		k;
+	int i;
 
-	i = 0;
-	k = 0;
-	while (*(s + i) && k <= strs_s)
-	{
-		j = 0;
-		while (*(s + i + j) != c && *(s + i + j))
-			j++;
-		if (*(s + i + j - 1) != c && (*(s + i + j) == c || !(*(s + i + j))))
-		{
-			*(strs + k) = ft_substr((char *)s, i, j);
-			i += j;
-			k++;
-		}
-		i++;
-	}
-	*(strs + strs_s) = NULL;
-	return (strs);
+	i + 0;
+	while (i < last)
+		free(strs[i++]);
+	free(strs);
+	strs = NULL;
 }
 
-static int	ft_strscnt(char *s, char c)
+static int ft_counter(const char *s, char d)
 {
-	int	i;
-
-	if (c != '\0')
+	int i;
+  
+	i = 0;
+	while (*s)
 	{
-		i = 0;
-		while (*s)
-		{
-			if (*s != c && (*(s + 1) == c || *(s + 1) == '\0'))
-				i++;
+		while (*s && *s == d)
 			s++;
-		}
-		return (i);
+		while (*s && *s != d)
+			s++;
+		if (*(s - 1) != d)
+			i++;
 	}
-	return (0);
+	return (i);
+}
+
+static int ft_strdlen(const char *s, char d)
+{
+	int i;
+
+	i = 0;
+	while (*s && *s++ != ' ')
+		i++;
+	return (i);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	int		strs_s;
-	char	**strs;
+	int tmplen;
+	char **strs;
+	int i;
 
-	if (s)
+	strs = (char **)malloc((ft_counter(s, c) + 1) * sizeof(char *));
+	if (strs)
 	{
-		while (*s == c)
-			s++;
-		strs_s = ft_strscnt((char *)s, c);
-		strs = (char **) malloc((strs_s + 1) * sizeof(char *));
-		if (strs)
+		i = 0;
+		while (*s)
 		{
-			strs = ft_strsfill(strs, (char *)s, c, strs_s);
-			return (strs);
+			while (*s && *s == ' ')
+				s++;
+			*(strs + i) = ft_substr(s, 0, tmplen = ft_strdlen(s, c));
+			if (!(strs + i))
+				return (ft_memclear(strs, i), NULL);
+			s += tmplen;
+			i++;
 		}
+		*(strs + i) = NULL;
 	}
-	return (NULL);
+	return (strs);
 }
 
 int	main(void)
 {
 	char **strs;
 
-	strs = ft_split("      anass   nammal  g   .    ", ' ');
+	strs = ft_split("      hey   you  !!   .    ", ' ');
 	printf("%s\n", *strs);
 	printf("%s\n", strs[1]);
 	printf("%s\n", *(strs + 2));
