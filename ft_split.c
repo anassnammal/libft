@@ -12,21 +12,21 @@
 #include "libft.h"
 #include <stdio.h>
 
-static void ft_memclear(char **strs, int last)
+static void	ft_memclear(char **strs, int last)
 {
-	int i;
+	int	i;
 
-	i + 0;
+	i = 0;
 	while (i < last)
 		free(strs[i++]);
 	free(strs);
 	strs = NULL;
 }
 
-static int ft_counter(const char *s, char d)
+static int	ft_counter(const char *s, char d)
 {
-	int i;
-  
+	int	i;
+
 	i = 0;
 	while (*s)
 	{
@@ -40,21 +40,21 @@ static int ft_counter(const char *s, char d)
 	return (i);
 }
 
-static int ft_strdlen(const char *s, char d)
+static int	ft_strdlen(const char *s, char d)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while (*s && *s++ != ' ')
+	while (*s && *s++ != d)
 		i++;
 	return (i);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	int tmplen;
-	char **strs;
-	int i;
+	int		tmplen;
+	char	**strs;
+	int		i;
 
 	strs = (char **)malloc((ft_counter(s, c) + 1) * sizeof(char *));
 	if (strs)
@@ -62,28 +62,30 @@ char	**ft_split(char const *s, char c)
 		i = 0;
 		while (*s)
 		{
-			while (*s && *s == ' ')
+			tmplen = 0;
+			while (*s && *s == c)
 				s++;
-			*(strs + i) = ft_substr(s, 0, tmplen = ft_strdlen(s, c));
+			if (*s && *s != c)
+				*(strs + i++) = ft_substr(s, 0, tmplen = ft_strdlen(s, c));
 			if (!(strs + i))
 				return (ft_memclear(strs, i), NULL);
 			s += tmplen;
-			i++;
 		}
 		*(strs + i) = NULL;
 	}
 	return (strs);
 }
 
-int	main(void)
-{
-	char **strs;
+// int	main(void)
+// {
+// 	char **strs;
 
-	strs = ft_split("      hey   you  !!   .    ", ' ');
-	printf("%s\n", *strs);
-	printf("%s\n", strs[1]);
-	printf("%s\n", *(strs + 2));
-	printf("%s\n", *(strs + 3));
-	printf("%p\n", *(strs + 4));
-	free(strs);
-}
+// 	strs = ft_split("^^^1^^2a,^^^^3^^^^--h^^^^", '*');
+// 	printf("%s\n", *strs);
+// 	printf("%s\n", strs[1]);
+// 	printf("%s\n", *(strs + 2));
+// 	printf("%s\n", *(strs + 3));
+// 	printf("%s\n", *(strs + 4));
+// 	//printf("%s\n", *(strs + 5));
+// 	free(strs);
+// }

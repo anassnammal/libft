@@ -12,7 +12,7 @@
 
 NAME = libft.a
 SRC =	$(shell ls ft_*.c | grep -v "bonus.c")
-BSRC =	$(shell ls ft_*.c)
+BSRC =	$(shell ls ft_*_bonus.c)
 CFLAGS += -Wall -Wextra -Werror -I libft.h
 OBJS = $(SRC:.c=.o)
 BOBJS = $(BSRC:.c=.o)
@@ -24,10 +24,11 @@ all: $(NAME)
 	@echo $(G) "ALL functions are done!"
 
 $(NAME): $(OBJS)
-	@ar rc $@ $(OBJS)
+	@ar rcs $@ $(OBJS)
 
-bonus: all $(BOBJS)
+bonus: $(BOBJS)
 	@echo $(G) "ALL bonus functions are done!"
+	@ar rcs $(NAME) $(BOBJS)
 
 %.o: %.c 
 	@echo $(Y) Compiling: $< ... Done!
@@ -43,4 +44,3 @@ fclean: clean
 	@rm -f $(NAME)
 
 re: fclean all
-	@echo $(R) re...

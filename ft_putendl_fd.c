@@ -13,10 +13,6 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	if (s)
-	{
-		while (*s)
-			write(fd, s++, 1);
-		write(fd, "\n", 1);
-	}
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }

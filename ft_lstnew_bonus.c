@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-#include <stdio.h>
 
 t_list	*ft_lstnew(void *content)
 {
@@ -23,14 +22,4 @@ t_list	*ft_lstnew(void *content)
 		new->next = NULL;
 	}
 	return (new);
-}
-
-int	main(void)
-{
-	t_list *lst;
-
-	lst = ft_lstnew((void *)1337);
-	printf("%d\n", lst->content);
-	printf("%p\n", lst->next);
-	return 0;
 }

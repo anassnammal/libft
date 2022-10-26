@@ -11,14 +11,14 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		len;
 	int		i;
 	char	*str;
 
-	if (s1 && s2)
+	if (s1 != 0 && s2 != 0)
 	{
 		len = ft_strlen(s1);
 		len += ft_strlen(s2);
@@ -35,13 +35,4 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (str);
 	}
 	return (NULL);
-}
-
-int	 main(void)
-{
-	char *s;
-
-	s = ft_strjoin("", "");
-	printf("%s\n", s);
-	return 0;
 }
