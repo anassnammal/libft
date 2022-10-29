@@ -67,7 +67,7 @@ char	**ft_split(char const *s, char c)
 				s++;
 			if (*s && *s != c)
 				*(strs + i++) = ft_substr(s, 0, tmplen = ft_strdlen(s, c));
-			if (!(strs + i))
+			if (!*(strs + i))
 				return (ft_memclear(strs, i), NULL);
 			s += tmplen;
 		}
