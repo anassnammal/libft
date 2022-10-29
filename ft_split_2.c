@@ -60,7 +60,7 @@ char	**ft_split2(char const *s, char c)
 			{
 				j = ft_strdlen(s, c);
 				*(strs + i) = ft_substr(s, 0, j);
-				if (!(strs + i))
+				if (!*(strs + i))
 					return (ft_free(strs, i), NULL);
 				s = s + j;
 				i++;
