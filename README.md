@@ -30,4 +30,4 @@ My humble solution for the first project in 1337(42) cursus...
 ### Fourth part:    Create a libft.h.
 • [libft](https://github.com/anass-nam/libft/blob/main/libft.h) <br />
 ### Fifth part:     Create MakeFile.
-• [Makefile](https://github.com/anass-nam/libft/blob/main/makefile) <br />
+• [Makefile](https://github.com/anass-nam/libft/blob/main/Makefile) <br />
