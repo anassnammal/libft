@@ -82,7 +82,7 @@ char	**ft_split(char const *s, char c)
 
 // 	strs = ft_split("^^^1^^2a,^^^^3^^^^--h^^^^", '*');
 // 	printf("%s\n", *strs);
-// 	printf("%s\n", strs[1]);
+// 	printf("%s\n", *(strs + 1));
 // 	printf("%s\n", *(strs + 2));
 // 	printf("%s\n", *(strs + 3));
 // 	printf("%s\n", *(strs + 4));
