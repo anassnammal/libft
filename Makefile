@@ -13,7 +13,7 @@
 NAME = libft.a
 SRC =	$(shell ls ft_*.c | grep -v "bonus.c")
 BSRC =	$(shell ls ft_*_bonus.c)
-CFLAGS += -Wall -Wextra -Werror -I libft.h
+CFLAGS += -Wall -Wextra -Werror -I $(NAME:.a=.h)
 OBJS = $(SRC:.c=.o)
 BOBJS = $(BSRC:.c=.o)
 R        := $(shell tput -Txterm setaf 1)
@@ -30,7 +30,7 @@ bonus: $(BOBJS)
 	@echo $(G) "ALL bonus functions are done!"
 	@ar rcs $(NAME) $(BOBJS)
 
-%.o: %.c 
+%.o: %.c $(NAME:.a=.h)
 	@echo $(Y) Compiling: $< ... Done!
 	@cc $(CFLAGS) -c $< \
 
