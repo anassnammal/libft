@@ -46,7 +46,7 @@ My humble solution for the first project in 1337(42) cursus...
 • [lstsize](https://github.com/anass-nam/libft/blob/main/ft_lstsize_bonus.c) => "Count a list nodes"<br />
 • [lstlast](https://github.com/anass-nam/libft/blob/main/ft_lstlast_bonus.c) => "Get the last node"<br />
 • [lstiter](https://github.com/anass-nam/libft/blob/main/ft_lstiter_bonus.c) => "Apply a given function as parameter on every node countent of a list"<br />
-• [lstmap](https://github.com/anass-nam/libft/blob/main/ft_lstmap.c) => "Apply a given function as parameter on every node countent of a list and generate a new one"<br />
+• [lstmap](https://github.com/anass-nam/libft/blob/main/ft_lstmap_bonus.c) => "Apply a given function as parameter on every node countent of a list and generate a new one"<br />
 ### Header file:    Create a libft.h.
 • [libft](https://github.com/anass-nam/libft/blob/main/libft.h) => "libft header"<br />
 ### Compiling part:     Create MakeFile.
