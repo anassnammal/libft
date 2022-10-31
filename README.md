@@ -26,27 +26,27 @@ My humble solution for the first project in 1337(42) cursus...
 • [calloc](https://github.com/anass-nam/libft/blob/main/ft_calloc.c) <br />
 • [strdup](https://github.com/anass-nam/libft/blob/main/ft_strdup.c) <br />
 ### Second part:    Create some additional usefull functions.
-• [substr](https://github.com/anass-nam/libft/blob/main/ft_substr.c) <br />
-• [strjoin](https://github.com/anass-nam/libft/blob/main/ft_strjoin.c) <br />
-• [strtrim](https://github.com/anass-nam/libft/blob/main/ft_strtrim.c) <br />
-• [split](https://github.com/anass-nam/libft/blob/main/ft_split.c) <br />
-• [itoa](https://github.com/anass-nam/libft/blob/main/ft_itoa.c) <br />
-• [strmapi](https://github.com/anass-nam/libft/blob/main/ft_strmapi.c) <br />
-• [striteri](https://github.com/anass-nam/libft/blob/main/ft_striteri.c) <br />
-• [putchar](https://github.com/anass-nam/libft/blob/main/ft_putchar_fd.c) <br />
-• [putstr](https://github.com/anass-nam/libft/blob/main/ft_putstr_fd.c) <br />
-• [putendl](https://github.com/anass-nam/libft/blob/main/ft_putendl_fd.c) <br />
-• [putnbr](https://github.com/anass-nam/libft/blob/main/ft_putnbr_fd.c) <br />
+• [substr](https://github.com/anass-nam/libft/blob/main/ft_substr.c) "extract a substring from a string"<br />
+• [strjoin](https://github.com/anass-nam/libft/blob/main/ft_strjoin.c) "Concatenate or join two strings"<br />
+• [strtrim](https://github.com/anass-nam/libft/blob/main/ft_strtrim.c) "Remove a set of characters from start/end of string"<br />
+• [split](https://github.com/anass-nam/libft/blob/main/ft_split.c) "Split a string by a delimiter"<br />
+• [itoa](https://github.com/anass-nam/libft/blob/main/ft_itoa.c) "Convert an intiger to a NUL Terminated string"<br />
+• [strmapi](https://github.com/anass-nam/libft/blob/main/ft_strmapi.c) "Apply a given function as parameter on every char of string and generate a new string"<br />
+• [striteri](https://github.com/anass-nam/libft/blob/main/ft_striteri.c) "Apply a given function as parameter on every char of string"<br />
+• [putchar](https://github.com/anass-nam/libft/blob/main/ft_putchar_fd.c) "Print a character on a specific file descriptor"<br />
+• [putstr](https://github.com/anass-nam/libft/blob/main/ft_putstr_fd.c) "Print a string on a specific file descriptor"<br />
+• [putendl](https://github.com/anass-nam/libft/blob/main/ft_putendl_fd.c) "Print a string with endl (\\n) on a specific file descriptor<br />
+• [putnbr](https://github.com/anass-nam/libft/blob/main/ft_putnbr_fd.c) "Print a number on a specific file descriptor"<br />
 ### Bonus part:     Create some usefull functions to manipulate linked list (singly).
-• [lstnew](https://github.com/anass-nam/libft/blob/main/ft_lstnew.c) <br />
-• [lstadd_front](https://github.com/anass-nam/libft/blob/main/ft_lstadd_front.c) <br />
-• [lstsize](https://github.com/anass-nam/libft/blob/main/ft_lstsize.c) <br />
-• [lstlast](https://github.com/anass-nam/libft/blob/main/ft_lstlast.c) <br />
-• [lstadd_back](https://github.com/anass-nam/libft/blob/main/ft_lstadd_back.c) <br />
-• [lstdelone](https://github.com/anass-nam/libft/blob/main/ft_lstdelone.c) <br />
-• [lstclear](https://github.com/anass-nam/libft/blob/main/ft_lstclear.c) <br />
-• [lstiter](https://github.com/anass-nam/libft/blob/main/ft_lstiter.c) <br />
-• [lstmap](https://github.com/anass-nam/libft/blob/main/ft_lstmap.c) <br />
+• [lstnew](https://github.com/anass-nam/libft/blob/main/ft_lstnew.c) "Create a new node"<br />
+• [lstadd_front](https://github.com/anass-nam/libft/blob/main/ft_lstadd_front.c) "Append a node to the beginning of a list"<br />
+• [lstadd_back](https://github.com/anass-nam/libft/blob/main/ft_lstadd_back.c) "Append a node to the end of a list"<br />
+• [lstdelone](https://github.com/anass-nam/libft/blob/main/ft_lstdelone.c) "Delete a node"<br />
+• [lstclear](https://github.com/anass-nam/libft/blob/main/ft_lstclear.c) "Delete and clear a list"<br />
+• [lstsize](https://github.com/anass-nam/libft/blob/main/ft_lstsize.c) "Count a list nodes"<br />
+• [lstlast](https://github.com/anass-nam/libft/blob/main/ft_lstlast.c) "Get the last node"<br />
+• [lstiter](https://github.com/anass-nam/libft/blob/main/ft_lstiter.c) "Apply a given function as parameter on every node countent of a list"<br />
+• [lstmap](https://github.com/anass-nam/libft/blob/main/ft_lstmap.c) "Apply a given function as parameter on every node countent of a list and generate a new one"<br />
 ### Header file:    Create a libft.h.
 • [libft](https://github.com/anass-nam/libft/blob/main/libft.h) <br />
 ### Compiling part:     Create MakeFile.
