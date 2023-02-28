@@ -17,10 +17,3 @@ void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
 }
-int main()
-{
-	int fd = open("foo", O_CREAT | O_RDWR | O_TRUNC, 777);
-	ft_putchar_fd('G', fd);
-
-	printf("%d", fd);
-}
