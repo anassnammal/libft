@@ -47,7 +47,7 @@ My humble solution for the first project in 1337(42) cursus...
 • [lstlast](https://github.com/anass-nam/libft/blob/main/ft_lstlast_bonus.c) => "Get the last node"<br />
 • [lstiter](https://github.com/anass-nam/libft/blob/main/ft_lstiter_bonus.c) => "Apply a given function as parameter on every node countent of a list"<br />
 • [lstmap](https://github.com/anass-nam/libft/blob/main/ft_lstmap_bonus.c) => "Apply a given function as parameter on every node countent of a list and generate a new one"<br />
-### Header file:    Create a libft.h.
+### Header file:    libft.h.
 • [libft](https://github.com/anass-nam/libft/blob/main/libft.h) => "libft header"<br />
-### Compiling part:     Create MakeFile.
+### Compiling part:     MakeFile.
 • [Makefile](https://github.com/anass-nam/libft/blob/main/Makefile) => "helper to compile libft.a"<br />
