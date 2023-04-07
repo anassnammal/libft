@@ -1,5 +1,4 @@
-# libft
-My humble solution for the first project in 1337(42) cursus...
+# libft (my C library)
 
 ### First part:     My own version of some libc functions.
 • [isalpha](https://github.com/anass-nam/libft/blob/main/ft_isalpha.c) => "See the manual"<br />
