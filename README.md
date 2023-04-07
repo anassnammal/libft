@@ -1,7 +1,7 @@
 # libft
 My humble solution for the first project in 1337(42) cursus...
 
-### First part:     Reproduce some libc functions.
+### First part:     My own version of some libc functions.
 • [isalpha](https://github.com/anass-nam/libft/blob/main/ft_isalpha.c) => "See the manual"<br />
 • [isdigit](https://github.com/anass-nam/libft/blob/main/ft_isdigit.c) => "See the manual"<br />
 • [isalnum](https://github.com/anass-nam/libft/blob/main/ft_isalnum.c) => "See the manual"<br />
@@ -25,7 +25,7 @@ My humble solution for the first project in 1337(42) cursus...
 • [atoi](https://github.com/anass-nam/libft/blob/main/ft_atoi.c) => "See the manual"<br />
 • [calloc](https://github.com/anass-nam/libft/blob/main/ft_calloc.c) => "See the manual"<br />
 • [strdup](https://github.com/anass-nam/libft/blob/main/ft_strdup.c) => "See the manual"<br />
-### Second part:    Create some additional usefull functions.
+### Second part:    Some additional usefull functions.
 • [substr](https://github.com/anass-nam/libft/blob/main/ft_substr.c) => "extract a substring from a string"<br />
 • [strjoin](https://github.com/anass-nam/libft/blob/main/ft_strjoin.c) => "Concatenate or join two strings"<br />
 • [strtrim](https://github.com/anass-nam/libft/blob/main/ft_strtrim.c) => "Remove a set of characters from start/end of string"<br />
@@ -37,7 +37,7 @@ My humble solution for the first project in 1337(42) cursus...
 • [putstr](https://github.com/anass-nam/libft/blob/main/ft_putstr_fd.c) => "Print a string on a specific file descriptor"<br />
 • [putendl](https://github.com/anass-nam/libft/blob/main/ft_putendl_fd.c) => "Print a string with endl (\\n) on a specific file descriptor<br />
 • [putnbr](https://github.com/anass-nam/libft/blob/main/ft_putnbr_fd.c) => "Print a number on a specific file descriptor"<br />
-### Bonus part:     Create some usefull functions to manipulate linked list (singly).
+### Bonus part:      Usefull functions to work with linked list (singly).
 • [lstnew](https://github.com/anass-nam/libft/blob/main/ft_lstnew_bonus.c) => "Create a new node"<br />
 • [lstadd_front](https://github.com/anass-nam/libft/blob/main/ft_lstadd_front_bonus.c) => "Append a node to the beginning of a list"<br />
 • [lstadd_back](https://github.com/anass-nam/libft/blob/main/ft_lstadd_back_bonus.c) => "Append a node to the end of a list"<br />
