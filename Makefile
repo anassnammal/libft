@@ -13,7 +13,7 @@
 NAME = libft.a
 SRC =	$(shell ls ft_*.c | grep -v "bonus.c")
 BSRC =	$(shell ls ft_*_bonus.c)
-CFLAGS += -Wall -Wextra -Werror -I $(NAME:.a=.h)
+CFLAGS += -Wall -Wextra -Werror
 OBJS = $(SRC:.c=.o)
 BOBJS = $(BSRC:.c=.o)
 R        := $(shell tput -Txterm setaf 1)

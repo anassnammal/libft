@@ -17,9 +17,13 @@ static void	ft_memclear(char **strs, int last)
 
 	i = 0;
 	while (i < last)
-		free(strs[i++]);
+	{
+		ft_bzero(*(strs + i), ft_strlen(*(strs + i)));
+		free(*(strs + i));
+		*(strs + i) = NULL;
+		i++;
+	}
 	free(strs);
-	strs = NULL;
 }
 
 static char	*ft_skiper(char *s, char d, int o)
@@ -47,7 +51,7 @@ static int	ft_strdlen(char *s, char d)
 	return (c);
 }
 
-static char	**ft_realoc(char **t, int l)
+static char	**ft_realloc(char **t, int l)
 {
 	char	**new;
 	int		i;
@@ -60,7 +64,7 @@ static char	**ft_realoc(char **t, int l)
 			*(new + i) = *(t + i);
 		return (free(t), new);
 	}
-	return (ft_memclear(new, l + 1), NULL);
+	return (ft_memclear(t, l), NULL);
 }
 
 char	**ft_split(char const *s, char c)
@@ -76,11 +80,11 @@ char	**ft_split(char const *s, char c)
 		while (*s)
 		{
 			*(strs + i) = ft_substr(s, 0, ft_strdlen((char *)s, c));
-			if (!*(strs + i++))
+			if (!*(strs + i))
 				return (ft_memclear(strs, i), NULL);
-			strs = ft_realoc(strs, i);
+			strs = ft_realloc(strs, ++i);
 			if (!strs)
-				return (ft_memclear(strs, i), NULL);
+				return (NULL);
 			s = ft_skiper((char *)s, c, 0);
 			s = ft_skiper((char *)s, c, 1);
 		}
