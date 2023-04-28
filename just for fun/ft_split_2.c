@@ -73,14 +73,14 @@ char	**ft_split2(char const *s, char c)
 	return (strs);
 }
 
-int main(void)
-{
-	char **strs;
+// int main(void)
+// {
+// 	char **strs;
 
-	strs = ft_split2("hey\0you\0!\0", '\0');
-	printf("%s\n", strs[0]);
-	printf("%s\n", strs[1]);
-	printf("%s\n", strs[2]);
-	printf("%s\n", strs[3]);
-	return 0;
-}
+// 	strs = ft_split2("hey\0you\0!\0", '\0');
+// 	printf("%s\n", strs[0]);
+// 	printf("%s\n", strs[1]);
+// 	printf("%s\n", strs[2]);
+// 	printf("%s\n", strs[3]);
+// 	return 0;
+// }
