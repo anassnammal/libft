@@ -13,8 +13,9 @@
 
 int	ft_atoi(const char *str)
 {
-	long int	r;
-	int			s;
+	int	r;
+	int	s;
+	int	p;
 
 	while (*str == 32 || (*str >= 9 && *str <= 13))
 		str++;
@@ -27,12 +28,14 @@ int	ft_atoi(const char *str)
 	else if (*str == '+' && ft_isdigit(*(char *)(str + 1)))
 		str++;
 	r = 0;
+	p = 0;
 	while (ft_isdigit(*str))
 	{
-		if (r > 2147483648 && s < 0)
+		if (r < p && s < 0)
 			return (0);
-		else if (r > 2147483647)
+		else if (r < p)
 			return (-1);
+		p = r;
 		r = r * 10 + ((*str++) - 48);
 	}
 	return (r * s);
