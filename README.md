@@ -4,6 +4,7 @@
 • [isalpha](https://github.com/anass-nam/libft/blob/main/ft_isalpha.c) => "See the manual"<br />
 • [isdigit](https://github.com/anass-nam/libft/blob/main/ft_isdigit.c) => "See the manual"<br />
 • [isalnum](https://github.com/anass-nam/libft/blob/main/ft_isalnum.c) => "See the manual"<br />
+• [isspace](https://github.com/anass-nam/libft/blob/main/ft_isspace.c) => "See the manual"<br />
 • [isascii](https://github.com/anass-nam/libft/blob/main/ft_isascii.c) => "See the manual"<br />
 • [isprint](https://github.com/anass-nam/libft/blob/main/ft_isprint.c) => "See the manual"<br />
 • [strlen](https://github.com/anass-nam/libft/blob/main/ft_strlen.c) => "See the manual"<br />
@@ -11,6 +12,7 @@
 • [bzero](https://github.com/anass-nam/libft/blob/main/ft_bzero.c) => "See the manual"<br />
 • [memcpy](https://github.com/anass-nam/libft/blob/main/ft_memcpy.c) => "See the manual"<br />
 • [memmove](https://github.com/anass-nam/libft/blob/main/ft_memmove.c) => "See the manual"<br />
+• [memclear](https://github.com/anass-nam/libft/blob/main/ft_memclear.c) => "See the manual"<br />
 • [strlcpy](https://github.com/anass-nam/libft/blob/main/ft_strlcpy.c) => "See the manual"<br />
 • [strlcat](https://github.com/anass-nam/libft/blob/main/ft_strlcat.c) => "See the manual"<br />
 • [toupper](https://github.com/anass-nam/libft/blob/main/ft_toupper.c) => "See the manual"<br />
