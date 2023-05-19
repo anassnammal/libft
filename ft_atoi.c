@@ -20,11 +20,12 @@ int	ft_atoi(const char *str)
 	while (*str == 32 || (*str >= 9 && *str <= 13))
 		str++;
 	s = 1;
-	if ((*str == '-' || *str == '+')&& ft_isdigit(*(char *)(str + 1)))
+	if ((*str == '-' || *str == '+') && ft_isdigit(*(char *)(str + 1)))
 		s = 44 - *(str++);
 	r = 0;
 	p = 0;
-	if (ft_strlen(str-1) >= 11 && !ft_isdigit(*(str + 10)) && ft_strncmp(str-1, "-2147483648", 11) == 0)
+	if (ft_strlen(str - 1) >= 11 && !ft_isdigit(*(str + 10))
+		&& ft_strncmp(str - 1, "-2147483648", 11) == 0)
 		return (-2147483648);
 	while (ft_isdigit(*str))
 	{
