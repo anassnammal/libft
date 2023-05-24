@@ -14,25 +14,20 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int		len;
-	int		i;
-	char	*str;
+	int		s1_len;
+	int		s2_len;
+	int		t_len;
+	char	*joined;
 
-	if (s1 != 0 && s2 != 0)
-	{
-		len = ft_strlen(s1);
-		len += ft_strlen(s2);
-		str = (char *) malloc((len + 1) * sizeof(char));
-		if (str)
-		{
-			i = 0;
-			while (*s1)
-				*(str + i++) = *s1++;
-			while (*s2)
-				*(str + i++) = *s2++;
-			*(str + i) = '\0';
-		}
-		return (str);
-	}
-	return (NULL);
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	t_len = s1_len + s2_len + 1;
+	joined = (char *)malloc((t_len) * sizeof(char));
+	if (joined == NULL)
+		return (NULL);
+	ft_strlcpy(joined, s1, t_len);
+	ft_strlcpy(joined + s1_len, s2, t_len);
+	return (joined);
 }
