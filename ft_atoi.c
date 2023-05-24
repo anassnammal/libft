@@ -24,8 +24,8 @@ int	ft_atoi(const char *str)
 		s = 44 - *(str++);
 	r = 0;
 	p = 0;
-	if (ft_strlen(str - 1) >= 11 && !ft_isdigit(*(str + 10))
-		&& ft_strncmp(str - 1, "-2147483648", 11) == 0)
+	if (ft_strlen(str) >= 10 && !ft_isdigit(*(str + 10))
+		&& ft_strncmp(str, "2147483648", 10) == 0 && s == -1)
 		return (-2147483648);
 	while (ft_isdigit(*str))
 	{
