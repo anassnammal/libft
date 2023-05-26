@@ -13,28 +13,24 @@
 
 int	ft_atoi(const char *str)
 {
-	int	r;
+	int	n;
 	int	s;
-	int	p;
 
-	while (*str == 32 || (*str >= 9 && *str <= 13))
+	while (ft_isspace(*str))
 		str++;
 	s = 1;
 	if ((*str == '-' || *str == '+') && ft_isdigit(*(char *)(str + 1)))
 		s = 44 - *(str++);
-	r = 0;
-	p = 0;
-	if (ft_strlen(str) >= 10 && !ft_isdigit(*(str + 10))
-		&& ft_strncmp(str, "2147483648", 10) == 0 && s == -1)
+	n = 0;
+	if (s == -1 && ft_strlen(str) >= 10 && !ft_isdigit(*(str + 10))
+		&& ft_strncmp(str, "2147483648", 10) == 0)
 		return (-2147483648);
 	while (ft_isdigit(*str))
 	{
-		if (r < p)
-			break ;
-		p = r;
-		r = r * 10 + ((*str++) - 48);
+		n = n * 10 + ((*str) - 48);
+		if (n % 10 != (*(str) - 48))
+			return ((s == -1) - 1);
+		str++;
 	}
-	if (r < p)
-		return ((s == -1) - 1);
-	return (r * s);
+	return (n * s);
 }
