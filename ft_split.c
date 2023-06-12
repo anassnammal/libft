@@ -41,16 +41,6 @@ static char	*ft_skiper(char *s, char d, int o)
 	return (s);
 }
 
-static int	ft_strdlen(char *s, char d)
-{
-	int	c;
-
-	c = 0;
-	while (*(s + c) && *(s + c) != d)
-		c++;
-	return (c);
-}
-
 static char	**ft_realloc(char **t, int l)
 {
 	char	**new;

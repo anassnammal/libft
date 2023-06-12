@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 
 typedef struct s_list
 {
@@ -56,9 +57,10 @@ void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 void	ft_free2d(void **ptr);
 size_t	ft_strlen(const char *s);
+size_t	ft_strdlen(const char *s, int c);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
-// bonus part.
+// linked list part.
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
@@ -68,5 +70,17 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+// get_next_line part
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 2
+# endif
+
+typedef struct s_gnl
+{
+	char	*rem;
+	int		fd;
+}	t_gnl;
+
+char	*get_next_line(int fd);
 
 #endif

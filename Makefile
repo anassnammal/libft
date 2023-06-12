@@ -16,31 +16,33 @@ BSRC =	$(shell ls ft_*_bonus.c)
 CFLAGS += -Wall -Wextra -Werror
 OBJS = $(SRC:.c=.o)
 BOBJS = $(BSRC:.c=.o)
-R        := $(shell tput -Txterm setaf 1)
-G        := $(shell tput -Txterm setaf 2)
-Y       := $(shell tput -Txterm setaf 3)
+R=\033[1;31m
+G=\033[1;32m
+Y=\033[1;33m
+NC=\033[1;0m
+CLR=\033[2J\033[u
 
 all: $(NAME)
-	@echo $(G) "ALL functions are done!"
+	@echo "$(CLR)$(G)The compilation of $(NAME) was successful.$(NC)"
 
 $(NAME): $(OBJS)
 	@ar rcs $@ $(OBJS)
 
 bonus: $(BOBJS)
-	@echo $(G) "ALL bonus functions are done!"
+	@echo "$(CLR)$(G)The compilation of $(NAME) (bonus) was successful.$(NC)"
 	@ar rcs $(NAME) $(BOBJS)
 
 %.o: %.c $(NAME:.a=.h)
-	@echo $(Y) Compiling: $< ... Done!
-	@cc $(CFLAGS) -c $< \
+	@echo "$(CLR)$(Y) Compiling: $< ... Done$(NC)!"
+	@cc $(CFLAGS) -c $<
 
 clean:
-	@echo $(R) Cleaned
+	@echo "$(CLR)$(R)The object file has been cleaned.$(NC)"
 	@rm -f $(OBJS)
 	@rm -f $(BOBJS)
 
 fclean: clean
-	@echo $(R) Fully cleaned
+	@echo "$(CLR)$(R)The libft library has been completely cleaned.$(NC)"
 	@rm -f $(NAME)
 
 re: fclean all
