@@ -36,7 +36,7 @@ bonus: $(BOBJS)
 
 gnl: $(BGNL)
 	@echo "$(CLR)$(G)The compilation of $(NAME) (gnl) was successful.$(NC)"
-	@ar rcs $(NAME) $(BOBJS)
+	@ar rcs $(NAME) $(BGNL)
 
 %.o: %.c $(NAME:.a=.h)
 	@echo "$(CLR)$(Y) Compiling: $< ... Done$(NC)!"
