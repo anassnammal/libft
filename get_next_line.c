@@ -42,6 +42,7 @@ static int	check_nl(char *s)
 static char	*readline(char *b, char *l, int fd)
 {
 	char	*line;
+	char	*tmp;
 	ssize_t	rd_status;
 	size_t	nl_check;
 
@@ -55,7 +56,9 @@ static char	*readline(char *b, char *l, int fd)
 			break ;
 		else if (rd_status == -1)
 			return (free(line), NULL);
+		tmp = line;
 		line = ft_strjoin(line, b);
+		free(tmp);
 		nl_check = check_nl(line);
 	}
 	return (line);
