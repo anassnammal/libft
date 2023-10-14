@@ -56,7 +56,7 @@ char	**ft_split(char const *s, char c)
 			*(strs + i) = ft_substr(s, 0, ft_strdlen((char *)s, c));
 			if (!*(strs + i))
 				return (ft_memclear(strs, i), NULL);
-			strs = ft_realloc(strs, ++i, 1);
+			strs = (char **)ft_realloc((void **)strs, ++i, 1);
 			if (!strs)
 				return (ft_memclear(strs, i), NULL);
 			s = ft_skiper((char *)s, c, 0);

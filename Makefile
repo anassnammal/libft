@@ -14,6 +14,7 @@ NAME = libft.a
 SRC =	$(shell ls ft_*.c | grep -v "bonus.c")
 BSRC =	$(shell ls ft_*_bonus.c)
 GNL = get_next_line.c
+CC = cc
 CFLAGS += -Wall -Wextra -Werror
 OBJS = $(SRC:.c=.o)
 BOBJS = $(BSRC:.c=.o)
@@ -40,7 +41,7 @@ gnl: $(BGNL)
 
 %.o: %.c $(NAME:.a=.h)
 	@echo "$(CLR)$(Y) Compiling: $< ... Done$(NC)!"
-	@cc $(CFLAGS) -c $<
+	@$(CC) $(CFLAGS) -c $<
 
 clean:
 	@echo "$(CLR)$(R)The object file has been cleaned.$(NC)"
