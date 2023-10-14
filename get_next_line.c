@@ -12,18 +12,21 @@
 
 #include "libft.h"
 
-static char	*init(char *rem)
+static char	*init(char **rem)
 {
 	char	*l;
 
-	if (rem)
+	if (*rem)
 	{
-		l = ft_strdup(rem);
-		free(rem);
-		rem = NULL;
+		l = ft_strdup(*rem);
+		free(*rem);
+		*rem = NULL;
 	}
 	else
 		l = ft_strdup("");
+	*rem = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
+	if (*rem == NULL)
+		return (free(l), NULL);
 	return (l);
 }
 
@@ -72,8 +75,9 @@ char	*get_next_line(int fd)
 	int			len;
 
 	ret = NULL;
-	line = init(buf[fd]);
-	buf[fd] = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
+	line = init(&buf[fd]);
+	if (line == NULL)
+		return (ret);
 	line = readline(buf[fd], line, fd);
 	free(buf[fd]);
 	buf[fd] = NULL;
