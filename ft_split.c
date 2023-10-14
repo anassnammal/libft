@@ -41,22 +41,6 @@ static char	*ft_skiper(char *s, char d, int o)
 	return (s);
 }
 
-static char	**ft_realloc(char **t, int l)
-{
-	char	**new;
-	int		i;
-
-	new = (char **)malloc(sizeof(char *) * (l + 1));
-	if (new)
-	{
-		i = -1;
-		while (++i < l)
-			*(new + i) = *(t + i);
-		return (free(t), new);
-	}
-	return (ft_memclear(t, l), NULL);
-}
-
 char	**ft_split(char const *s, char c)
 {
 	char	**strs;
@@ -72,9 +56,9 @@ char	**ft_split(char const *s, char c)
 			*(strs + i) = ft_substr(s, 0, ft_strdlen((char *)s, c));
 			if (!*(strs + i))
 				return (ft_memclear(strs, i), NULL);
-			strs = ft_realloc(strs, ++i);
+			strs = ft_realloc(strs, ++i, 1);
 			if (!strs)
-				return (NULL);
+				return (ft_memclear(strs, i), NULL);
 			s = ft_skiper((char *)s, c, 0);
 			s = ft_skiper((char *)s, c, 1);
 		}
